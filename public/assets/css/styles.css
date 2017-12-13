@@ -1,0 +1,48 @@
+#boxed    {
+    border: 1px solid grey;
+    background-color: white;
+    box-shadow: 1em 1em 1em;
+}
+
+#here   {
+    color: teal;
+}
+
+body    {
+    background-color: teal;
+}
+
+footer  {
+    float: both;
+    clear: both;
+}
+
+#login  {
+    color: white;
+    background-color: teal;
+    box-shadow: 1px 1px 1px black;
+}
+
+#navbar {
+    background-color: black;
+    border: 1px;
+}
+
+a:active    {
+    color: teal;
+}
+
+a:hover {
+    color: green;
+}
+
+a:visited,
+a:link   {
+    color: white;
+}
+
+#cannabuddy  {
+    font-weight: bold;
+    float: left;
+    margin: 1em;
+}
