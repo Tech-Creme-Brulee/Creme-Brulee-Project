@@ -2,23 +2,24 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Login - Passport Authentication</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+  <link href="../assets/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" id="navbar">
     <div class="container-fluid">
       <div class="navbar-header">
+        <a id="cannabuddy" href="index.html">cannabuddy</a>
       </div>
     </div>
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3" id="boxed">
         <h2>Login Form</h2>
         <form class="login">
           <div class="form-group">
@@ -29,10 +30,10 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-default">Login</button>
+          <button type="submit" class="btn btn-default" id="login">Login</button>
         </form>
         <br />
-        <p>Or sign up <a href="/">here</a></p>
+        <p>Or sign up <a id="here" href="signup.html">here</a></p>
       </div>
     </div>
   </div>
