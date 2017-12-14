@@ -1,44 +1,60 @@
-$("#submit-button").on("click", function(e){
-    e.preventDefault();
-    $("#results").html("");
-    var searchCat = $("#searchCategory").val();
 
-    if(searchCat = "products"){
-      searchProducts();
-    }else if(searchCat = "strain"){
-      searchStrain();
-    }else if(searchCat = "flower"){
-      searchFlower();
-    }else if(searchCat = "seeds"){
-      searchSeeds();
+$("#submit-button").on("click", function(e){
+
+    e.preventDefault();
+    console.log("in js");
+    $("#panels").empty();
+    var searchCat = $("#searchCategory").val().trim().toLowerCase();
+    console.log(searchCat);
+    if(searchCat == "products" || "products"){
+      search("products");
+    }else if(searchCat == "strains" || "strain"){
+      search("strains");
+    }else if(searchCat == "flowers" || "flower"){
+      search("flowers");
+    }else if(searchCat == "seeds" || "seed"){
+      search("seeds");
     }else{
 
     }
 
   });
 
-  function searchProducts(){
-    var queryURL = "https://api.otreeba.com/v1/seed-companies?count=5&sort=-createdAt";
+  function search(forWhat){
+    console.log("inside the ajax call");
+    var queryURL = "https://api.otreeba.com/v1/" + forWhat + "?count=5&sort=-createdAt";
     $.ajax({
       url: queryURL,
       method: "GET",
-      headesr: {
-        Authorization: "key = 26299dcdbe909a94af5640327e2ca1a8b55a3852"
+      header: {
+        "Authorization": "key = bf33c451f08cbcb295cf6ccfbd0b5d5d3ceef706"
       }
     }).done(function(response){
-      var a = response.data[0].ocpc;
-      $("#result1").append(a);
+      console.log("finished the ajax call");
+      var photo = getPhoto(forWhat);
+      for(var i = 0; i < response.data.length; i++){
+        var a = response.data[i].name;
+        $("#results").append(a);
+        var b = $("<img>");
+        b.attr("src", photo);
+        $("#results").append(b);
+        var c = $("<p>").text(response.data[i].description);
+        $("#results").append(c);
+        console.log(response.data[i]);
+      }
     });    
-  }
+  };
 
-  function searchFlower(){
+  function getPhoto(forWhat){
+    if(forWhat == "products"){
+      return "../assets/photos/products.png";
+    }else if(forWhat == "strain"){
+      return "../assets/photos/weedLeaf.png"
+    }else if(forWhat == "flower"){
+      return "../assets/photos/flower.png"
+    }else if(forWhat == "seeds"){
+      return "../assets/photos/seeds.png"
+    }else{
 
-  }
-
-  function searchSeeds(){
-
-  }
-
-  function searchStrain(){
-
+    }
   }
