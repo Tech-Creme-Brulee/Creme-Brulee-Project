@@ -13,7 +13,8 @@ module.exports = function(app) {
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
+    // to verify user is in database user.find 
+    if (req.user) {//req.user === the query result of the user id 
       res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/views/login.html"));
