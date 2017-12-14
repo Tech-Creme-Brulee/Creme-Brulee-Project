@@ -1,4 +1,3 @@
-
 $("#submit-button").on("click", function(e){
 
     e.preventDefault();
@@ -58,3 +57,15 @@ $("#submit-button").on("click", function(e){
 
     }
   }
+
+$(document).ready(function(){
+  var resultId = "97fc3192-e486-42a2-b400-6f4dd2b189dd";
+  saveResult(resultId);
+  function saveResult(searchResult){
+    $.post("/api/search_data",{
+      ucpc: resultId
+    }).then(function(){
+      displayTopResults();
+    })
+  }
+})
