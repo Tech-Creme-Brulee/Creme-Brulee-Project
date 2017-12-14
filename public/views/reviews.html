@@ -13,19 +13,27 @@
 <body>
     <div class="navbar-fixed">
         <nav class="black" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo white-text">cannabuddy</a>
-            <ul class="right hide-on-med-and-down white-text">
-                <li><a href="#" class="white-text">login</a></li>
+            <div class="nav-wrapper container">
+              <a id="logo-container" href="index.html" class="brand-logo white-text">cannabuddy</a>
+            <ul class="right white-text hide-on-med-and-down">
+                <li>
+                  <a href="login.html" class="white-text">login</a>
+                </li>
             </ul>
 
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a href="#" data-activates="nav-mobile" class="button-collapse">
+              <i class="material-icons">menu</i>
+            </a>
             </div>
         </nav>
     </div>
     <ul id="nav-mobile" class="side-nav">
-        <li><a href="#" class="black-text">login</a></li>
+      <li>
+        <a href="login.html" class="black-text">login</a>
+      </li>
     </ul>
-  <div class="section no-pad-bot" id="index-banner">
+
+  <div class="section no-pad-bot" id="index-banner" style="background-image: url('https://honestmarijuana.com/wp-content/uploads/2017/06/products-blunts-1200x430.png'); background-repeat: no-repeat; background-size: cover;";>
     <div class="container">
       <br><br>
       <h1 class="header center green-text text-accent-4">Smarter Searching </h1>
@@ -37,12 +45,12 @@
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">my_location</i>
-                    <input id="icon_prefix" type="text" class="validate" style="background-color: black; color: white;">
+                    <input id="icon_prefix" type="text" class="validate" style="background-color: white; color: black;">
                     <label for="icon_prefix">City, State</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">search</i>
-                    <input id="icon_telephone" type="tel" class="validate" style="background-color: black; color: white;">
+                    <input id="icon_telephone" type="tel" class="validate" style="background-color: white; color: black;">
                     <label for="icon_telephone">Search Category</label>
                 </div>
             </div>
@@ -131,8 +139,9 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../assets/js/materialize.js"></script>
-  <script src="../assets/js/init.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+  <script src="../js/index.js"></script>
 
   </body>
 </html>
