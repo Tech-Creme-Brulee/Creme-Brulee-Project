@@ -52,4 +52,15 @@ module.exports = function(app) {
     }
   });
 
+  // Route for storing search result into Cannabis table
+  app.post("/api/search_data", function(req, res) {
+    console.log(req.body);
+    db.Cannabis.create({
+      ucpc: req.body.ucpc
+    }).then(function() {
+      res.json({
+        ucpc: req.body.ucpc
+      })
+    })
+  });
 };
