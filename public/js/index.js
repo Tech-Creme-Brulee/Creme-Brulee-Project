@@ -1,4 +1,11 @@
-$("#submit-button").on("click", function(e){
+
+$(document).ready(function () {
+
+  var userSession = sessionStorage.getItem("islogged");
+
+  $("#submit-button").on("click", function (e) {
+
+
 
     e.preventDefault();
     console.log("in js");
@@ -18,6 +25,7 @@ $("#submit-button").on("click", function(e){
     }
 
   });
+
 
   function search(forWhat){
     console.log("inside the ajax call");
@@ -44,28 +52,38 @@ $("#submit-button").on("click", function(e){
     });    
   };
 
-  function getPhoto(forWhat){
-    if(forWhat == "products"){
-      return "../assets/photos/products.png";
-    }else if(forWhat == "strain"){
-      return "../assets/photos/weedLeaf.png"
-    }else if(forWhat == "flower"){
-      return "../assets/photos/flower.png"
-    }else if(forWhat == "seeds"){
-      return "../assets/photos/seeds.png"
-    }else{
-
-    }
-  }
-
-$(document).ready(function(){
-  var resultId = "97fc3192-e486-42a2-b400-6f4dd2b189dd";
+  var resultId = "";
   saveResult(resultId);
   function saveResult(searchResult){
     $.post("/api/search_data",{
       ucpc: resultId
-    }).then(function(){
+    }).then(function () {
       displayTopResults();
     })
   }
+
+
+  function setLinkVisibility() {
+    userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();
+  }
+
+  function hideMemberAccessBtn() {
+    $(".member-access").hide();
+  }
+
+  function hideMemberOnlyBtn() {
+    $(".member-only").hide();
+    $(".member-access").show();
+  }
+
+
+  $(".logout").on("click", function () {
+    sessionStorage.clear();
+  })
+
+
+  setLinkVisibility();
 })
+
+
+}

@@ -28,10 +28,7 @@ $(document).ready(function() {
       email: email,
       password: password
     }).then(function(data) {
-      if(data.loggedin === true){
-        sessionStorage.setItem('isloggend', true);
-        window.location.replace(data.url);
-      }
+        window.location.replace(data.url);     
       // If there's an error, log the error
     }).catch(function(err) {
       console.log(err);
