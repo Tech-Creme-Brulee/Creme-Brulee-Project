@@ -90,7 +90,7 @@ $(document).ready(function () {
   };
  
     function saveResult(searchResult) {
-      $.post("/api/search_data", {
+      $.post("/reviews", {
         ucpc: searchResult
       })
     }
