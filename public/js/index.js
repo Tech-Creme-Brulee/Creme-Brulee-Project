@@ -15,8 +15,8 @@ $(document).ready(function () {
       search("flowers");
     } else if (searchCat == "edible" || "edibles") {
       search("edibles");
-    } else {
-
+    }else{
+      alert("Sorry that was invalid iniput please search again with, products, strains, flowers, edibles")
     }
 
   });
