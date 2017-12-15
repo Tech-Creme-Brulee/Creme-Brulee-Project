@@ -1,4 +1,6 @@
-$("#submit-button").on("click", function(e){
+$(document).ready(function () {
+  var userSession = sessionStorage.getItem("islogged");
+  $("#submit-button").on("click", function (e) {
 
     e.preventDefault();
     console.log("in js");
@@ -19,7 +21,8 @@ $("#submit-button").on("click", function(e){
 
   });
 
-  function search(forWhat){
+  function search(forWhat) {
+
     console.log("inside the ajax call");
     var queryURL = "https://api.otreeba.com/v1/" + forWhat + "?count=5&sort=-createdAt";
     $.ajax({
@@ -85,9 +88,37 @@ $("#submit-button").on("click", function(e){
       
     });    
   };
-
   function saveResult(searchResult){
     $.post("/api/search_data",{
       ucpc: searchResult
     });
+
+  function saveResult(searchResult) {
+    $.post("/api/search_data", {
+      ucpc: resultId
+    }).then(function () {
+      displayTopResults();
+    })
   }
+
+
+  function setLinkVisibility() {
+    userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();
+  }
+
+  function hideMemberAccessBtn() {
+    $(".member-access").hide();
+  }
+
+  function hideMemberOnlyBtn() {
+    $(".member-only").hide();
+    $(".member-access").show();
+  }
+    
+    $(".logout").on("click", function () {
+   sessionStorage.clear();
+ });
+
+
+ setLinkVisibility();
+  });
