@@ -39,9 +39,11 @@ $(document).ready(function () {
         $(a).attr("ocpc", response.data[i].ocpc);
         $(a).attr("obj", response.data[i]);
         $(a).addClass("resultElement");
+        $(a).addClass("href", "https://localhost:7979/reviews");
         $(a).on("click", function () {
           var ocpc = $(this).attr("ocpc");
           localStorage.setItem("ocpc", ocpc);
+          window.location($(this).attr("href"));
           saveResult(ocpc);
         });
         $("#results").append(a);
@@ -53,10 +55,12 @@ $(document).ready(function () {
         $(b).attr("width", "200px");
         $(b).attr("height", "200px");
         $(b).addClass("resultElement");
+        $(b).addClass("link", "https://localhost:7979/reviews");
         $(b).on("click", function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
+          window.location($(this).attr("href"));
           saveResult(ocpc);
         });
         $("#results").append(b);
@@ -65,10 +69,12 @@ $(document).ready(function () {
         $(c).attr("ocpc", response.data[i].ocpc);
         $(c).attr("obj", response.data[i]);
         $(c).addClass("resultElement");
+        $(c).addClass("link", "https://localhost:7979/reviews");
         $(c).on("click", function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
+          window.location($(this).attr("href"));
           saveResult(ocpc);
         });
         $("#results").append(c);
@@ -77,10 +83,12 @@ $(document).ready(function () {
         $(d).attr("ocpc", response.data[i].ocpc);
         $(d).attr("obj", response.data[i]);
         $(d).addClass("resultElement");
+        $(d).addClass("link", "https://localhost:7979/reviews");
         $(d).on("click", function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
+          window.location($(this).attr("href"));
           saveResult(ocpc);
 
         });
