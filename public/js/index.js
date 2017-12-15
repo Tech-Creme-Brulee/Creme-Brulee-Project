@@ -30,33 +30,22 @@ $("#submit-button").on("click", function(e){
       }
     }).done(function(response){
       console.log("finished the ajax call");
-      var photo = getPhoto(forWhat);
       for(var i = 0; i < response.data.length; i++){
         var a = response.data[i].name;
         $("#results").append(a);
         var b = $("<img>");
-        b.attr("src", photo);
+        b.attr("src", response.data[i].image);
         $("#results").append(b);
         var c = $("<p>").text(response.data[i].description);
         $("#results").append(c);
         console.log(response.data[i]);
+        var d = $("<p></p>");
+        $("#results").append(d);
       }
+
+      
     });    
   };
-
-  function getPhoto(forWhat){
-    if(forWhat == "products"){
-      return "../assets/photos/products.png";
-    }else if(forWhat == "strain"){
-      return "../assets/photos/weedLeaf.png"
-    }else if(forWhat == "flower"){
-      return "../assets/photos/flower.png"
-    }else if(forWhat == "seeds"){
-      return "../assets/photos/seeds.png"
-    }else{
-
-    }
-  }
 
 $(document).ready(function(){
   var resultId = "97fc3192-e486-42a2-b400-6f4dd2b189dd";
