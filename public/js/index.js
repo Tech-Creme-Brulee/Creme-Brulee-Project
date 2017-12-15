@@ -1,10 +1,6 @@
 $(document).ready(function () {
-
   var userSession = sessionStorage.getItem("islogged");
-
   $("#submit-button").on("click", function (e) {
-
-
 
     e.preventDefault();
     console.log("in js");
@@ -19,12 +15,9 @@ $(document).ready(function () {
       search("flowers");
     } else if (searchCat == "seeds" || "seed") {
       search("seeds");
-    } else {
-
-    }
+    } else {    }
 
   });
-
 
   function search(forWhat) {
     console.log("inside the ajax call");
@@ -52,7 +45,7 @@ $(document).ready(function () {
   };
 
   var resultId = "";
-  saveResult(resultId);
+  //saveResult(resultId);
 
   function saveResult(searchResult) {
     $.post("/api/search_data", {
