@@ -7,13 +7,13 @@ $(document).ready(function () {
     $("#panels").empty();
     var searchCat = $("#searchCategory").val().trim().toLowerCase();
     console.log(searchCat);
-    if (searchCat == "products" || "products") {
+    if (searchCat === "product" || searchCat === "products") {
       search("products");
-    } else if (searchCat == "strains" || "strain") {
+    } else if (searchCat == "strains" || searchCat === "strain") {
       search("strains");
-    } else if (searchCat == "flowers" || "flower") {
+    } else if (searchCat == "flowers" || searchCat === "flower") {
       search("flowers");
-    } else if (searchCat == "edible" || "edibles") {
+    } else if (searchCat == "edible" || searchCat === "edibles") {
       search("edibles");
     }else{
       alert("Sorry that was invalid iniput please search again with, products, strains, flowers, edibles")
@@ -23,7 +23,7 @@ $(document).ready(function () {
 
   function search(forWhat) {
 
-    console.log("inside the ajax call");
+    console.log(forWhat);
     var queryURL = "https://api.otreeba.com/v1/" + forWhat + "?count=5&sort=-createdAt";
     $.ajax({
       url: queryURL,
@@ -50,6 +50,8 @@ $(document).ready(function () {
         $(b).attr("src", response.data[i].image);
         $(b).attr("ocpc", response.data[i].ocpc);
         $(b).attr("obj", response.data[i]);
+        $(b).attr("width", "200px");
+        $(b).attr("height", "200px");
         $(b).addClass("resultElement");
         $(b).on("click", function () {
           var ocpc = $(this).attr("ocpc");
@@ -91,7 +93,7 @@ $(document).ready(function () {
  
     function saveResult(searchResult) {
       $.post("/api/search_data", {
-        ucpc: resultId
+        ucpc: searchResult
       })
     }
 
