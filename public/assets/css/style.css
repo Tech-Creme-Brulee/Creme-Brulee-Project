@@ -30,8 +30,8 @@ p {
     width: 100%;
   }
 
-  #results{
-    float: left;
+  p img{
+    margin: 50px;
   }
 
 @media only screen and (max-width : 992px) {
