@@ -91,7 +91,7 @@ $(document).ready(function () {
  
     function saveResult(searchResult) {
       $.post("/api/search_data", {
-        ucpc: resultId
+        ucpc: searchResult
       })
     }
 
