@@ -28,11 +28,20 @@ $(document).ready(function() {
       email: email,
       password: password
     }).then(function(data) {
+      //session storageStorage should occur here before the page is moved over
+      if(data.loggedin){
+        sessionStorage.setItem("islogged", true);
+      }
         window.location.replace(data.url);     
       // If there's an error, log the error
     }).catch(function(err) {
       console.log(err);
     });
   }
+
+  $(".logout").on("click", function () {
+    sessionStorage.clear();
+  });
+
 
 });

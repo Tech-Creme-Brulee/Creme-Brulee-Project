@@ -11,7 +11,8 @@ module.exports = function(app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
     res.json({
-      url: "/members"
+      url: "/members",
+      loggedin: true
     })
     
     //res.json("/members"); 
@@ -44,17 +45,14 @@ module.exports = function(app) {
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
-      res.json({
-        loggedin: false
-      });
+      res.json({});
     }
     else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id,
-        loggedin: true
+        id: req.user.id
       });
     }
   });
