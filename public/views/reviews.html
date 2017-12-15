@@ -1,69 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
   <title>Reviews</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
-    <div class="navbar-fixed">
-        <nav class="black" role="navigation">
-            <div class="nav-wrapper container">
+  <div class="navbar-fixed">
+    <nav class="black" role="navigation">
+      <div class="nav-wrapper container">
 
-              <a id="logo-container" href="/" class="brand-logo white-text">cannabuddy</a>
-            <ul class="right white-text hide-on-med-and-down">
+        <a id="logo-container" href="/" class="brand-logo white-text">cannabuddy</a>
+        <ul class="right white-text hide-on-med-and-down">
 
-                <li>
-                  <a href="/reviews" class="white-text">reviews</a>
-                </li>
-                <li>
-                  <a href="/login" class="white-text">login</a>
-                </li>
-                <li>
-                  <a href="/signup" class="white-text">register</a>
-                </li>
-                <li>
-                  <a href="/index" class="white-text">logout</a>
-                </li>
-                <li>
-                  <a href="/members" class="white-text">profile</a>
-                </li>
-              </ul>
+          <li>
+            <a href="/reviews" class="white-text">reviews</a>
+          </li>
+          <li class="member-access">
+            <a href="/login" class="white-text">login</a>
+          </li>
+          <li class="member-access">
+            <a href="/signup" class="white-text">register</a>
+          </li>
+          <li class="member-only">
+            <a href="/logout" class="white-text logout">logout</a>
+          </li>
+          <li class="member-only">
+            <a href="/members" class="white-text">profile</a>
+          </li>
+        </ul>
 
-            <a href="#" data-activates="nav-mobile" class="button-collapse">
-              <i class="material-icons">menu</i>
-            </a>
-            </div>
-        </nav>
-    </div>
-    <ul id="nav-mobile" class="side-nav">
-      <li>
-        <a href="/reviews" class="black-text">reviews</a>
-      </li>
-      <li>
-        <a href="/login" class="black-text">login</a>
-      </li>
-      <li>
-        <a href="/signup" class="black-text">register</a>
-      </li>
-      <li>
-        <a href="/index" class="black-text">logout</a>
-      </li>
-      <li>
-        <a href="/members" class="black-text">profile</a>
-      </li>
-      </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>
+    </nav>
+  </div>
+  <ul id="nav-mobile" class="side-nav">
+    <li>
+      <a href="/reviews" class="black-text">reviews</a>
+    </li>
+    <li class="member-access">
+      <a href="/login" class="black-text">login</a>
+    </li>
+    <li class="member-access">
+      <a href="/signup" class="black-text">register</a>
+    </li>
+    <li class="member-only">
+      <a href="/logout" class="black-text logout">logout</a>
+    </li>
+    <li class="member-only">
+      <a href="/members" class="black-text">profile</a>
+    </li>
+  </ul>
 
-  <div class="section no-pad-bot" id="index-banner" style="background-image: url('https://media.giphy.com/media/26gsnOb6H9AiTNIli/giphy.gif'); background-repeat: no-repeat; background-size: cover;";>
+  <div class="section no-pad-bot" id="index-banner" style="background-image: url('https://media.giphy.com/media/26gsnOb6H9AiTNIli/giphy.gif'); background-repeat: no-repeat; background-size: cover;"
+    ;>
     <!-- https://honestmarijuana.com/wp-content/uploads/2017/06/products-blunts-1200x430.png -->
     <!-- https://lh3.googleusercontent.com/Fi-ZfwnMvkmO8XJQYantx4y4t2c0J9c0Kjk2F5GEkPgkOMVjqrTATXL8HYIvZkZ9rDg=h900 -->
     <div class="container">
-      <br><br>
+      <br>
+      <br>
       <h1 class="header center white-text">Smarter Searching </h1>
       <div class="row center">
         <h5 class="header col s12 light white-text">for better results</h5>
@@ -77,10 +81,12 @@
                     <label for="icon_telephone">Search</label>
                 </div>
             </div>
-            <a class="waves-effect waves-light btn green accent-4">search</a>
+          </div>
+          <a class="waves-effect waves-light btn green accent-4">search</a>
         </form>
       </div>
-      <br><br>
+      <br>
+      <br>
 
     </div>
   </div>
@@ -93,34 +99,45 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center green-text text-accent-4"><i class="material-icons">flash_on</i></h2>
+            <h2 class="center green-text text-accent-4">
+              <i class="material-icons">flash_on</i>
+            </h2>
             <h5 class="center">Speeds up development</h5>
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.
+              Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center green-text text-accent-4"><i class="material-icons">group</i></h2>
+            <h2 class="center green-text text-accent-4">
+              <i class="material-icons">group</i>
+            </h2>
             <h5 class="center">User Experience Focused</h5>
 
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates
+              components and animations that provide more feedback to users. Additionally, a single underlying responsive
+              system across all platforms allow for a more unified user experience.</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center green-text text-accent-4"><i class="material-icons">settings</i></h2>
+            <h2 class="center green-text text-accent-4">
+              <i class="material-icons">settings</i>
+            </h2>
             <h5 class="center">Easy to work with</h5>
 
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are
+              also always open to feedback and can answer any questions a user may have about Materialize.</p>
           </div>
         </div>
       </div>
 
     </div>
-    <br><br>
+    <br>
+    <br>
   </div>
 
   <footer class="page-footer green accent-4">
@@ -135,26 +152,43 @@
         <div class="col l3 s12">
           <h5 class="white-text">Settings</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li>
+              <a class="white-text" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 4</a>
+            </li>
           </ul>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Connect with us</h5>
           <ul>
-            <li><a class="white-text" href="https://github.com/Tech-Creme-Brulee" target="_blank">Github</a></li>
-            <li><a class="white-text" href="https://facebook.com/" target="_blank">Facebook</a></li>
-            <li><a class="white-text" href="https://linkedin.com/" target="_blank">LinkedIn</a></li>
-            <li><a class="white-text" href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
+            <li>
+              <a class="white-text" href="https://github.com/Tech-Creme-Brulee" target="_blank">Github</a>
+            </li>
+            <li>
+              <a class="white-text" href="https://facebook.com/" target="_blank">Facebook</a>
+            </li>
+            <li>
+              <a class="white-text" href="https://linkedin.com/" target="_blank">LinkedIn</a>
+            </li>
+            <li>
+              <a class="white-text" href="https://stackoverflow.com/" target="_blank">Stack Overflow</a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright black">
       <div class="container">
-      Created by <a class="green-text text-accent-4" href="#">Creme Brulee, Inc</a>
+        Created by
+        <a class="green-text text-accent-4" href="#">Creme Brulee, Inc</a>
       </div>
     </div>
   </footer>
@@ -166,5 +200,6 @@
   <script src="../js/init.js"></script>
   <script src="../js/index.js"></script>
 
-  </body>
+</body>
+
 </html>
