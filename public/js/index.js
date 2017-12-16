@@ -92,12 +92,12 @@ $(document).ready(function () {
 
     });
   };
-
+ 
   function saveResult(searchResult) {
-    $.post("/api/search_data", {
-      ucpc: searchResult
-    })
-  }
+      $.post("/reviews", {
+        ucpc: searchResult
+      })
+    }
 
   function setLinkVisibility() {
     userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();
