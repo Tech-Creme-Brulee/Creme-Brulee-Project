@@ -85,7 +85,7 @@ $(document).ready(function () {
 
         });
         $("#results").append(d);
-        var e = $("<a>").text("Review Me");
+        var e = $("<a>").text("Write a Review of this Product!");
         $(e).attr("href", "http://localhost:7979/reviews");
         $("#results").append(e);
       }
@@ -94,7 +94,7 @@ $(document).ready(function () {
   };
 
   function saveResult(searchResult) {
-    $.post("/api/search_data", {
+    $.post("/reviews", {
       ucpc: searchResult
     })
   }
