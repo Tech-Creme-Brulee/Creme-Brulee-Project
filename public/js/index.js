@@ -59,7 +59,10 @@ $(document).ready(function () {
           localStorage.setItem("ocpc", ocpc);
           saveResult(ocpc);
         });
+        // if (response.data[i].image == "https://www.cannabisreports.com/images/" + forWhat + "strains/no_image.png") {
+        // $("#results").next(b);
         $("#results").append(b);
+        // }
 
         var c = $("<p>").text(response.data[i].description);
         $(c).attr("ocpc", response.data[i].ocpc);
@@ -85,19 +88,19 @@ $(document).ready(function () {
 
         });
         $("#results").append(d);
-        var e = $("<a>").text("Review Me");
+        var e = $("<a>").text("Write a Review of this Product!");
         $(e).attr("href", "http://localhost:7979/reviews");
         $("#results").append(e);
       }
 
     });
   };
- 
+
   function saveResult(searchResult) {
-      $.post("/reviews", {
-        ucpc: searchResult
-      })
-    }
+    $.post("/reviews", {
+      ucpc: searchResult
+    })
+  }
 
   function setLinkVisibility() {
     userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();
