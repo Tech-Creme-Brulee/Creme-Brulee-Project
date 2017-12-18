@@ -1,8 +1,5 @@
 $(document).ready(function () {
-  var a = localStorage.getItem("ucpc");
   var userSession = sessionStorage.getItem("islogged");
-  //link this page to the forum page
-  console.log(a);
 
   function setLinkVisibility() {
     userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();
@@ -124,7 +121,7 @@ $(document).ready(function () {
       [
         "<li class='list-group-item review-item'>",
         "<span>",
-        review.text,
+        review.body,
         "</span>",
         "<input type='text' class='edit' style='display: none;'>",
         "<button class='delete btn btn-default'>x</button>",
@@ -145,11 +142,17 @@ $(document).ready(function () {
   // This function inserts a new review into our database and then updates the view
   function insertReview(event) {
     event.preventDefault();
+    var id = localStorage.getItem("resultId");
+    id = sessionStorage.getItem("resultId");
+    var cannabiId = parseInt(JSON.stringify(id));
     var review = {
       text: $newItemInput.val().trim(),
-      complete: false
+      complete: false,
+      CannabiId: cannabiId
     };
 
+    console.log(id);
+    console.log(cannabiId);
     $.post("/api/reviews", review, getReviews);
     $newItemInput.val("");
   }

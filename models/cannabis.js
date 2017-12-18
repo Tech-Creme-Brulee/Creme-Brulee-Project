@@ -7,9 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     // The ucpc cannot be null, and must be a proper email before creation
     ucpc: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-     
+      allowNull: false
     }
   });
 

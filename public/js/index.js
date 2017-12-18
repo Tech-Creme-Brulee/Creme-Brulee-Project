@@ -89,7 +89,13 @@ $(document).ready(function () {
         });
         $("#results").append(d);
         var e = $("<a>").text("Write a Review of this Product!");
+        $(e).attr("ocpc", response.data[i].ocpc);
         $(e).attr("href", "http://localhost:7979/reviews");
+        $(e).on("click", function () {
+          var ocpc = $(this).attr("ocpc");
+          localStorage.setItem("ocpc", ocpc);
+          saveResult(ocpc);
+        });
         $("#results").append(e);
       }
 
@@ -97,10 +103,14 @@ $(document).ready(function () {
   };
 
   function saveResult(searchResult) {
-    $.post("/reviews", {
+    $.post("/api/search_data", {
       ucpc: searchResult
-    })
+    }, function(data){
+      localStorage.setItem("resultId", data.id);
+      sessionStorage.setItem("resultId", data.id);
+    });
   }
+
 
   function setLinkVisibility() {
     userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();
