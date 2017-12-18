@@ -1,5 +1,13 @@
 $(document).ready(function () {
-  var a = localStorage.getItem("ucpc");
+  var obj = localStorage.getItem("obj");
+  obj = JSON.parse(obj);
+
+  var a = $("<p>").text(obj.name);
+  $("#results").append(a);
+
+  var b = $("<img src='" + obj.image + "' " + "width='200px' " + "height='200px' " + "/>");
+  $("#results").append(b);
+
   var userSession = sessionStorage.getItem("islogged");
   //link this page to the forum page
   console.log(a);
