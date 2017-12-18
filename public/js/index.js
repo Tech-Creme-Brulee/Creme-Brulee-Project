@@ -84,8 +84,7 @@ $(document).ready(function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc);
-
+          saveResult(ocpc); 
         });
         $("#results").append(d);
         var e = $("<a>").text("Write a Review of this Product!");
@@ -94,7 +93,7 @@ $(document).ready(function () {
         $(e).on("click", function () {
           var ocpc = $(this).attr("ocpc");
           localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc);
+          saveResult(ocpc);//the redirect happens before we get back the result from saveResult function; i need to get back the data before the page redirects a different page
         });
         $("#results").append(e);
       }
@@ -106,6 +105,7 @@ $(document).ready(function () {
     $.post("/api/search_data", {
       ucpc: searchResult
     }, function(data){
+      console.log(data);
       localStorage.setItem("resultId", data.id);
       sessionStorage.setItem("resultId", data.id);
     });
