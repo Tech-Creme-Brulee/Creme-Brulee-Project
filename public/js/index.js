@@ -61,7 +61,10 @@ $(document).ready(function () {
           localStorage.setItem("obj", response.data[i])
           saveResult(ocpc);
         });
+        // if (response.data[i].image == "https://www.cannabisreports.com/images/" + forWhat + "strains/no_image.png") {
+        // $("#results").next(b);
         $("#results").append(b);
+        // }
 
         var c = $("<p>").text(response.data[i].description);
         $(c).attr("ocpc", response.data[i].ocpc);
