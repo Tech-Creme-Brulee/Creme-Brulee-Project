@@ -56,22 +56,13 @@ module.exports = function (app) {
   });
 
   // Route for storing search result into Cannabis table
-  // app.post("/api/search_data", function(req, res) {
-  //   console.log(req.body);
-  //   db.Cannabis.create({
-  //     ucpc: req.body.ucpc
-  //   }).then(function() {
-  //     res.json({
-  //       ucpc: req.body.ucpc
-  //     })
-  //   })
-  // });
-  app.post("/reviews", function (req, res) {
+  app.post("/api/search_data", function (req, res) {
     console.log(req.body);
     db.Cannabis.create({
       ucpc: req.body.ucpc
-    }).then(function () {
+    }).then(function(dbCannabis){
       res.json({
+        id: req.body.id,
         ucpc: req.body.ucpc
       });
     });
@@ -86,14 +77,16 @@ module.exports = function (app) {
     });
   });
 
+
   // POST route for saving a new review
   app.post("/api/reviews", function (req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
     db.Comment.create({
-      id: req.user.id,
-      body: req.body.text
+      body: req.body.text,
+      UserId: req.user.id,
+      CannabiId: req.body.CannabiId
     }).then(function (dbComment) {
       // We have access to the new review as an argument inside of the callback function
       res.json(dbComment);
