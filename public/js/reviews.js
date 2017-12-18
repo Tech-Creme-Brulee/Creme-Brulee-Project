@@ -138,9 +138,11 @@ $(document).ready(function () {
   // This function inserts a new review into our database and then updates the view
   function insertReview(event) {
     event.preventDefault();
+    var resultId = parseInt(localStorage.getItem("resultId"));
     var review = {
       text: $newItemInput.val().trim(),
-      complete: false
+      complete: false,
+      CannabiId: resultId
     };
 
     $.post("/api/reviews", review, getReviews);
