@@ -71,12 +71,12 @@ $(document).ready(function () {
         $("#results").append(e);
       }
     });
-  };
+  }
 
   function saveResult(searchResult) {
     $.post("/reviews", {
       ucpc: searchResult
-    })
+    });
   }
 
   function setLinkVisibility() {
