@@ -62,8 +62,7 @@ module.exports = function (app) {
       ucpc: req.body.ucpc
     }).then(function(dbCannabis){
       res.json({
-        id: req.body.id,
-        ucpc: req.body.ucpc
+        id: req.body.id
       });
     });
   });

@@ -54,6 +54,15 @@ module.exports = $(document).ready(function () {
 
         //adds empty space for formatting
         var d = $("<p></p>");
+        $(d).attr("ocpc", response.data[i].ocpc);
+        $(d).attr("obj", response.data[i]);
+        $(d).addClass("resultElement");
+        $(d).on("click", function () {
+          var ocpc = $(this).attr("ocpc");
+          console.log(ocpc);
+          localStorage.setItem("ocpc", ocpc);
+          saveResult(ocpc); 
+        });
         $("#results").append(d);
 
         //adds link to reviewes page
@@ -76,7 +85,8 @@ module.exports = $(document).ready(function () {
   function saveResult(searchResult) {
     $.post("/api/search_data", {
       ucpc: searchResult
-    }, function (data) {
+    }, function(data){
+      console.log(data);
       localStorage.setItem("resultId", data.id);
       sessionStorage.setItem("resultId", data.id);
     });
