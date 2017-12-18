@@ -80,9 +80,9 @@ module.exports = function (app) {
   // GET route for getting all of the reviews
   app.get("/api/reviews", function (req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Review.findAll({}).then(function (dbReview) {
+    db.Comments.findAll({}).then(function (dbComments) {
       // We have access to the reviews as an argument inside of the callback function
-      res.json(dbReview);
+      res.json(dbComments);
     });
   });
 
@@ -91,12 +91,12 @@ module.exports = function (app) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
-    db.Review.create({
+    db.Comments.create({
       text: req.body.text,
       complete: req.body.complete
-    }).then(function (dbReview) {
+    }).then(function (dbComments) {
       // We have access to the new review as an argument inside of the callback function
-      res.json(dbReview);
+      res.json(dbComments);
     });
   });
 
@@ -104,12 +104,12 @@ module.exports = function (app) {
   // req.params.id
   app.delete("/api/reviews/:id", function (req, res) {
     // We just have to specify which review we want to destroy with "where"
-    db.Review.destroy({
+    db.Comments.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function (dbReview) {
-      res.json(dbReview);
+    }).then(function (dbComments) {
+      res.json(dbComments);
     });
 
   });
@@ -118,15 +118,15 @@ module.exports = function (app) {
   app.put("/api/reviews", function (req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Review.update({
+    db.Comments.update({
       text: req.body.text,
       complete: req.body.complete
     }, {
       where: {
         id: req.body.id
       }
-    }).then(function (dbReview) {
-      res.json(dbReview);
+    }).then(function (dbComments) {
+      res.json(dbComments);
     });
   });
 };
