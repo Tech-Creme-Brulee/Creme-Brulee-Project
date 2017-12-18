@@ -71,7 +71,7 @@ $(document).ready(function () {
         $("#results").append(e);
       }
     });
-  };
+  }
 
   function saveResult(searchResult) {
     $.post("/api/search_data", {
