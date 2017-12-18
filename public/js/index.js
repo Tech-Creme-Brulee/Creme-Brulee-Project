@@ -61,7 +61,7 @@ module.exports = $(document).ready(function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc); 
+          saveResult(ocpc);
         });
         $("#results").append(d);
 
