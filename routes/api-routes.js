@@ -56,11 +56,11 @@ module.exports = function (app) {
   });
 
   // Route for storing search result into Cannabis table
-  app.post("/api/search-result", function (req, res) {
+  app.post("/api/search_data", function (req, res) {
     console.log(req.body);
     db.Cannabis.create({
       ucpc: req.body.ucpc
-    }).then(function () {
+    }).then(function(dbCannabis){
       res.json({
         id: req.body.id,
         ucpc: req.body.ucpc
