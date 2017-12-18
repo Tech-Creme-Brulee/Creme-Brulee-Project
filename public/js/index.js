@@ -1,3 +1,5 @@
+var ocpc = [];
+
 $(document).ready(function () {
   var userSession = sessionStorage.getItem("islogged");
   $("#submit-button").on("click", function (e) {
@@ -38,6 +40,7 @@ $(document).ready(function () {
         console.log(response.data[i].ocpc);
         $(a).attr("ocpc", response.data[i].ocpc);
         $(a).attr("obj", response.data[i]);
+        $(a).attr("index", i);
         $(a).addClass("resultElement");
         $(a).on("click", function () {
           var ocpc = $(this).attr("ocpc");
@@ -84,7 +87,7 @@ $(document).ready(function () {
         $(d).attr("obj", response.data[i]);
         $(d).addClass("resultElement");
         $(d).on("click", function () {
-          var ocpc = $(this).attr("ocpc");
+          var ocpc = 
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
           localStorage.setItem("obj", response.data[i])
@@ -94,6 +97,13 @@ $(document).ready(function () {
         $("#results").append(d);
         var e = $("<a>").text("Write a Review of this Product!");
         $(e).attr("href", "http://localhost:7979/reviews");
+        $(c).on("click", function () {
+          var ocpc = $(this).attr("ocpc");
+          console.log(ocpc);
+          localStorage.setItem("ocpc", ocpc);
+          localStorage.setItem("obj", response.data[i])
+          saveResult(ocpc);
+        });
         $("#results").append(e);
       }
 
