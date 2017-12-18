@@ -80,9 +80,9 @@ module.exports = function (app) {
   // GET route for getting all of the reviews
   app.get("/api/reviews", function (req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Comments.findAll({}).then(function (dbComments) {
+    db.Comment.findAll({}).then(function (dbComment) {
       // We have access to the reviews as an argument inside of the callback function
-      res.json(dbComments);
+      res.json(dbComment);
     });
   });
 
@@ -91,12 +91,12 @@ module.exports = function (app) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
-    db.Comments.create({
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function (dbComments) {
+    db.Comment.create({
+      id: req.user.id,
+      body: req.body.text
+    }).then(function (dbComment) {
       // We have access to the new review as an argument inside of the callback function
-      res.json(dbComments);
+      res.json(dbComment);
     });
   });
 
@@ -104,12 +104,12 @@ module.exports = function (app) {
   // req.params.id
   app.delete("/api/reviews/:id", function (req, res) {
     // We just have to specify which review we want to destroy with "where"
-    db.Comments.destroy({
+    db.Comment.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function (dbComments) {
-      res.json(dbComments);
+    }).then(function (dbComment) {
+      res.json(dbComment);
     });
 
   });
@@ -118,15 +118,14 @@ module.exports = function (app) {
   app.put("/api/reviews", function (req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Comments.update({
-      text: req.body.text,
-      complete: req.body.complete
+    db.Comment.update({
+      body: req.body.text
     }, {
       where: {
         id: req.body.id
       }
-    }).then(function (dbComments) {
-      res.json(dbComments);
+    }).then(function (dbComment) {
+      res.json(dbComment);
     });
   });
 };

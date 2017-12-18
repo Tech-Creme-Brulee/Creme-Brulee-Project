@@ -1,36 +1,36 @@
-module.exports = function(sequelize, DataTypes) {
-    var Comment = sequelize.define("Comment", {
-      title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-      body: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+module.exports = function (sequelize, DataTypes) {
+  var Comment = sequelize.define("Comment", {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
         len: [1]
       }
-    });
-  
-    Comment.associate = function(models) {
-      // We're saying that a Comment should belong to an Author
-      // A Comment can't be created without an Author due to the foreign key constraint
-      Comment.belongsTo(models.User, {
-        foreignKey: {
-          allowNull: false
-        },
-        onDelete: 'CASCADE'
-      });
+    },
+    body: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1]
+    }
+  });
 
-      Comment.belongsTo(models.Cannabis, {
-        foreignKey: {
-          allowNull: false
-        },
-        onDelete: 'CASCADE'
-      });
+  Comment.associate = function (models) {
+    // We're saying that a Comment should belong to an Author
+    // A Comment can't be created without an Author due to the foreign key constraint
+    Comment.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      },
+      onDelete: 'CASCADE'
+    });
+
+    Comment.belongsTo(models.Cannabis, {
+      foreignKey: {
+        allowNull: false
+      },
+      onDelete: 'CASCADE'
+    });
   };
-  
+
   return Comment;
-  };
+};
