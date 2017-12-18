@@ -1,4 +1,4 @@
-$(document).ready(function () {
+module.exports = $(document).ready(function () {
 
   var userSession = sessionStorage.getItem("islogged");
   $("#submit-button").on("click", function (e) {
@@ -76,7 +76,7 @@ $(document).ready(function () {
   function saveResult(searchResult) {
     $.post("/api/search_data", {
       ucpc: searchResult
-    }, function(data){
+    }, function (data) {
       localStorage.setItem("resultId", data.id);
       sessionStorage.setItem("resultId", data.id);
     });
