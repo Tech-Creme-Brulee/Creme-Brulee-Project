@@ -8,6 +8,19 @@ $(document).ready(function () {
   var b = $("<img src='" + obj.image + "' " + "width='200px' " + "height='200px' " + "/>");
   $("#results").append(b);
 
+  $.ajax({
+    url: "http://localhost:7979/api/reviews",
+    method: "GET",
+    header: {
+      "Authorization": "key = bf33c451f08cbcb295cf6ccfbd0b5d5d3ceef706"
+    }
+  }).done(function(response){
+    for(var i = 0; i < response.length; i++){
+      var comment = $("<p>").text(response[i]);
+      $("#comments").append(comment);
+    }
+  });
+
   var userSession = sessionStorage.getItem("islogged");
   //link this page to the forum page
   console.log(a);
