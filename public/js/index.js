@@ -1,4 +1,4 @@
-$(document).ready(function () {
+module.exports = $(document).ready(function () {
   var userSession = sessionStorage.getItem("islogged");
   $("#submit-button").on("click", function (e) {
 
