@@ -30,15 +30,14 @@ $(document).ready(function () {
   $(".logout").on("click", function () {
     sessionStorage.clear();
   });
-});
 
-$(document).ready(function () {
   // Getting a reference to the input field where user adds a new review
   var $newItemInput = $("input.new-item");
   // Our new reviews will go inside the reviewContainer
   var $reviewContainer = $(".review-container");
   // Adding event listeners for deleting, editing, and adding reviews
   $(document).on("click", "button.delete", deleteReview);
+  $(document).on("click", "button.complete", toggleComplete);
   $(document).on("click", ".review-item", editReview);
   $(document).on("keyup", ".review-item", finishEdit);
   $(document).on("blur", ".review-item", cancelEdit);
@@ -85,6 +84,14 @@ $(document).ready(function () {
     $(this).children("input.edit").val(currentReview.text);
     $(this).children("input.edit").show();
     $(this).children("input.edit").focus();
+  }
+
+  // Toggles complete status
+  function toggleComplete(event) {
+    event.stopPropagation();
+    var todo = $(this).parent().data("todo");
+    todo.complete = !todo.complete;
+    updateTodo(todo);
   }
 
   // This function starts updating a review in the database if a user hits the "Enter Key"
