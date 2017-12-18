@@ -1,4 +1,4 @@
-$(document).ready(function () {
+module.exports = $(document).ready(function () {
 
   var userSession = sessionStorage.getItem("islogged");
   $("#submit-button").on("click", function (e) {
@@ -74,10 +74,14 @@ $(document).ready(function () {
   }
 
   function saveResult(searchResult) {
-    $.post("/reviews", {
+    $.post("/api/search_data", {
       ucpc: searchResult
+    }, function (data) {
+      localStorage.setItem("resultId", data.id);
+      sessionStorage.setItem("resultId", data.id);
     });
   }
+
 
   function setLinkVisibility() {
     userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();
