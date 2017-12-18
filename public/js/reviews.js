@@ -22,9 +22,7 @@ $(document).ready(function () {
   $(".logout").on("click", function () {
     sessionStorage.clear();
   });
-});
 
-$(document).ready(function () {
   // Getting a reference to the input field where user adds a new review
   var $newItemInput = $("input.new-item");
   // Our new reviews will go inside the reviewContainer
