@@ -42,6 +42,7 @@ $(document).ready(function () {
         $(a).on("click", function () {
           var ocpc = $(this).attr("ocpc");
           localStorage.setItem("ocpc", ocpc);
+          localStorage.setItem("obj", response.data[i])
           saveResult(ocpc);
         });
         $("#results").append(a);
@@ -57,6 +58,7 @@ $(document).ready(function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
+          localStorage.setItem("obj", response.data[i])
           saveResult(ocpc);
         });
         $("#results").append(b);
@@ -69,6 +71,7 @@ $(document).ready(function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
+          localStorage.setItem("obj", response.data[i])
           saveResult(ocpc);
         });
         $("#results").append(c);
@@ -81,6 +84,7 @@ $(document).ready(function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
+          localStorage.setItem("obj", response.data[i])
           saveResult(ocpc);
 
         });
