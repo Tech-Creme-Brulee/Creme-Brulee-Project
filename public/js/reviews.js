@@ -22,27 +22,18 @@ $(document).ready(function () {
   });
 
   saveResult(ocpc);
-  getCannabisId(ocpc);
+ 
   // save ocpc into cannabis table 
   function saveResult(searchResult) {
     $.post("/api/search_data", {
       ucpc: searchResult
-    }, function(data){
-      //localStorage.setItem("resultId", data.body);
-    }).done(function(res){
-      console.log(res.id);
     });
-    
+    getCannabisId(ocpc);
   }
 
   function getCannabisId(cannabisId){
-    $.get("/api/cannabis_data", {
-      ucpc: cannabisId
-    }, function(data){
-      console.log("fasdfasdfasdf");
-      console.log(data);
-      var res = data.find(e => e.ucpc === "9XVU73ERQ3000000000000000");
-      console.log(res.id);
+    $.get("/api/cannabis_data", function(data){
+      var res = data.find(e => e.ucpc === cannabisId);
       localStorage.setItem("resultId", res.id);
     })
   }
@@ -160,15 +151,12 @@ $(document).ready(function () {
   function insertReview(event) {
     event.preventDefault();
     var id = localStorage.getItem("resultId");
-   
     var review = {
       text: $newItemInput.val().trim(),
       complete: false,
       CannabiId: id
     };
 
-    console.log("test: " + id);
-  
     $.post("/api/reviews", review, getReviews);
     $newItemInput.val("");
   }
