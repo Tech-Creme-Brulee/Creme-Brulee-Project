@@ -65,13 +65,10 @@ module.exports = function (app) {
 
   // get cannabis id 
   app.get("/api/cannabis_data", function(req, res){
-    db.Cannabis.findOne({
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbCannabis){
+    db.Cannabis.findAll({}).then(function (dbCannabis) {
+      // We have access to the reviews as an argument inside of the callback function
       res.json(dbCannabis);
-    })
+    });
   })
 
   // GET route for getting all of the reviews

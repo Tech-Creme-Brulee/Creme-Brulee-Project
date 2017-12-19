@@ -41,6 +41,9 @@ $(document).ready(function () {
     }, function(data){
       console.log("fasdfasdfasdf");
       console.log(data);
+      var res = data.find(e => e.ucpc === "9XVU73ERQ3000000000000000");
+      console.log(res.id);
+      localStorage.setItem("resultId", res.id);
     })
   }
   // Getting a reference to the input field where user adds a new review
@@ -157,15 +160,15 @@ $(document).ready(function () {
   function insertReview(event) {
     event.preventDefault();
     var id = localStorage.getItem("resultId");
-    var cannabiId = parseInt(JSON.stringify(id));
+   
     var review = {
       text: $newItemInput.val().trim(),
       complete: false,
-      CannabiId: cannabiId
+      CannabiId: id
     };
 
-    console.log(id);
-    console.log(cannabiId);
+    console.log("test: " + id);
+  
     $.post("/api/reviews", review, getReviews);
     $newItemInput.val("");
   }
