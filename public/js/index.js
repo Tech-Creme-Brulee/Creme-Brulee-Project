@@ -3,10 +3,10 @@ $(document).ready(function () {
   $("#submit-button").on("click", function (e) {
 
     e.preventDefault();
-    console.log("in js");
+
     $("#panels").empty();
     var searchCat = $("#searchCategory").val().trim().toLowerCase();
-    console.log(searchCat);
+
     if (searchCat === "product" || searchCat === "products") {
       search("products");
     } else if (searchCat == "strains" || searchCat === "strain") {
@@ -42,7 +42,6 @@ $(document).ready(function () {
         $(a).on("click", function () {
           var ocpc = $(this).attr("ocpc");
           localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc);
         });
         $("#results").append(a);
 
@@ -57,7 +56,6 @@ $(document).ready(function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc);
         });
         // if (response.data[i].image == "https://www.cannabisreports.com/images/" + forWhat + "strains/no_image.png") {
         // $("#results").next(b);
@@ -72,7 +70,6 @@ $(document).ready(function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc);
         });
         $("#results").append(c);
 
@@ -83,8 +80,7 @@ $(document).ready(function () {
         $(d).on("click", function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
-          localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc); 
+          localStorage.setItem("ocpc", ocpc); 
         });
         $("#results").append(d);
         var e = $("<a>").text("Write a Review of this Product!");
@@ -92,25 +88,13 @@ $(document).ready(function () {
         $(e).attr("href", "http://localhost:7979/reviews");
         $(e).on("click", function () {
           var ocpc = $(this).attr("ocpc");
-          localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc);//the redirect happens before we get back the result from saveResult function; i need to get back the data before the page redirects a different page
+          localStorage.setItem("ocpc", ocpc);//the redirect happens before we get back the result from saveResult function; i need to get back the data before the page redirects a different page
         });
         $("#results").append(e);
       }
 
     });
   };
-
-  function saveResult(searchResult) {
-    $.post("/api/search_data", {
-      ucpc: searchResult
-    }, function(data){
-      console.log(data);
-      localStorage.setItem("resultId", data.id);
-      sessionStorage.setItem("resultId", data.id);
-    });
-  }
-
 
   function setLinkVisibility() {
     userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();

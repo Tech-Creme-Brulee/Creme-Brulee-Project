@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var userSession = sessionStorage.getItem("islogged");
+  var ocpc = localStorage.getItem("ocpc");
 
   function setLinkVisibility() {
     userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();
@@ -20,6 +21,28 @@ $(document).ready(function () {
     sessionStorage.clear();
   });
 
+  saveResult(ocpc);
+  getCannabisId(ocpc);
+  // save ocpc into cannabis table 
+  function saveResult(searchResult) {
+    $.post("/api/search_data", {
+      ucpc: searchResult
+    }, function(data){
+      //localStorage.setItem("resultId", data.body);
+    }).done(function(res){
+      console.log(res.id);
+    });
+    
+  }
+
+  function getCannabisId(cannabisId){
+    $.get("/api/cannabis_data", {
+      ucpc: cannabisId
+    }, function(data){
+      console.log("fasdfasdfasdf");
+      console.log(data);
+    })
+  }
   // Getting a reference to the input field where user adds a new review
   var $newItemInput = $("input.new-item");
   // Our new reviews will go inside the reviewContainer
@@ -134,7 +157,6 @@ $(document).ready(function () {
   function insertReview(event) {
     event.preventDefault();
     var id = localStorage.getItem("resultId");
-    id = sessionStorage.getItem("resultId");
     var cannabiId = parseInt(JSON.stringify(id));
     var review = {
       text: $newItemInput.val().trim(),
