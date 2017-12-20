@@ -1,4 +1,4 @@
-module.exports = $(document).ready(function () {
+$(document).ready(function () {
 
   var userSession = sessionStorage.getItem("islogged");
   $("#submit-button").on("click", function (e) {
@@ -105,7 +105,7 @@ module.exports = $(document).ready(function () {
         $(e).attr("href", "http://localhost:7979/reviews");
         $(e).on("click", function () {
           var obj = $(this).attr("obj");
-          //localStorage.setItem("obj", obj);
+          localStorage.setItem("obj", obj);
           obj = JSON.parse(obj);
           var ocpc = obj.ocpc;
           localStorage.setItem("ocpc", ocpc);

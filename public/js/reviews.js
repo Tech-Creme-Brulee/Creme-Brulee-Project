@@ -1,10 +1,8 @@
 $(document).ready(function () {
   var obj = localStorage.getItem("obj");
   obj = JSON.parse(obj);
-
-  var a = $("<p>").text(obj.name);
+  var a = $("<p>").append(obj.name);
   $("#results").append(a);
-
   var b = $("<img src='" + obj.image + "' " + "width='200px' " + "height='200px' " + "/>");
   $("#results").append(b);
 
@@ -14,10 +12,11 @@ $(document).ready(function () {
     header: {
       "Authorization": "key = bf33c451f08cbcb295cf6ccfbd0b5d5d3ceef706"
     }
-  }).done(function(response){
-    for(var i = 0; i < response.length; i++){
-      var comment = $("<p>").text(response[i]);
-      $("#comments").append(comment);
+  }).done(function (response) {
+    for (var i = 0; i < response.length; i++) {
+      //console.log(response);
+      //var comment = $("<p>").text(response[i]);
+      //$("#comments").append(comment);
     }
   });
 
@@ -44,7 +43,7 @@ $(document).ready(function () {
   });
 
   saveResult(ocpc);
- 
+
   // save ocpc into cannabis table 
   function saveResult(searchResult) {
     $.post("/api/search_data", {
@@ -53,8 +52,8 @@ $(document).ready(function () {
     getCannabisId(ocpc);
   }
 
-  function getCannabisId(cannabisId){
-    $.get("/api/cannabis_data", function(data){
+  function getCannabisId(cannabisId) {
+    $.get("/api/cannabis_data", function (data) {
       var res = data.find(e => e.ucpc === cannabisId);
       localStorage.setItem("resultId", res.id);
     })
