@@ -60,12 +60,16 @@ module.exports = function (app) {
     console.log(req.body);
     db.Cannabis.create({
       ucpc: req.body.ucpc
-    }).then(function(dbCannabis){
-      res.json({
-        id: req.body.id
-      });
     });
   });
+
+  // get cannabis id 
+  app.get("/api/cannabis_data", function(req, res){
+    db.Cannabis.findAll({}).then(function (dbCannabis) {
+      // We have access to the reviews as an argument inside of the callback function
+      res.json(dbCannabis);
+    });
+  })
 
   // GET route for getting all of the reviews
   app.get("/api/reviews", function (req, res) {

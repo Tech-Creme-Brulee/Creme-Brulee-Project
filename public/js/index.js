@@ -6,7 +6,6 @@ module.exports = $(document).ready(function () {
     //prevents the page from doing javascript it would do by default  
     e.preventDefault();
 
-    //clears the previous panels so that we can display the results
     $("#panels").empty();
 
     //user input
@@ -42,14 +41,50 @@ module.exports = $(document).ready(function () {
 
         //adds name
         var a = $("<p>").text(response.data[i].name);
+
+        console.log(response.data[i].ocpc);
+        $(a).attr("ocpc", response.data[i].ocpc);
+        $(a).attr("obj", response.data[i]);
+        $(a).addClass("resultElement");
+        $(a).on("click", function () {
+          var ocpc = $(this).attr("ocpc");
+          localStorage.setItem("ocpc", ocpc);
+        });
+        $("#results").append(a);
+
+        var b = $("<img>");
+        $(b).attr("src", response.data[i].image);
+        $(b).attr("ocpc", response.data[i].ocpc);
+        $(b).attr("obj", response.data[i]);
+        $(b).attr("width", "200px");
+        $(b).attr("height", "200px");
+        $(b).addClass("resultElement");
+        $(b).on("click", function () {
+          var ocpc = $(this).attr("ocpc");
+          console.log(ocpc);
+          localStorage.setItem("ocpc", ocpc);
+        });
+        // if (response.data[i].image == "https://www.cannabisreports.com/images/" + forWhat + "strains/no_image.png") {
+        // $("#results").next(b);
         $("#results").append(a);
 
         //adds image
         var b = $("<img src='" + response.data[i].image + "' " + "width='200px' " + "height='200px' " + "/>");
+
         $("#results").append(b);
 
         //adds description
         var c = $("<p>").text(response.data[i].description);
+
+        $(c).attr("ocpc", response.data[i].ocpc);
+        $(c).attr("obj", response.data[i]);
+        $(c).addClass("resultElement");
+        $(c).on("click", function () {
+          var ocpc = $(this).attr("ocpc");
+          console.log(ocpc);
+          localStorage.setItem("ocpc", ocpc);
+        });
+
         $("#results").append(c);
 
         //adds empty space for formatting
@@ -61,7 +96,6 @@ module.exports = $(document).ready(function () {
           var ocpc = $(this).attr("ocpc");
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
-          saveResult(ocpc);
         });
         $("#results").append(d);
 
@@ -71,27 +105,16 @@ module.exports = $(document).ready(function () {
         $(e).attr("href", "http://localhost:7979/reviews");
         $(e).on("click", function () {
           var obj = $(this).attr("obj");
-          localStorage.setItem("obj", obj);
+          //localStorage.setItem("obj", obj);
           obj = JSON.parse(obj);
           var ocpc = obj.ocpc;
-          saveResult(ocpc);
+          localStorage.setItem("ocpc", ocpc);
         });
 
         $("#results").append(e);
       }
     });
   }
-
-  function saveResult(searchResult) {
-    $.post("/api/search_data", {
-      ucpc: searchResult
-    }, function (data) {
-      console.log(data);
-      localStorage.setItem("resultId", data.id);
-      sessionStorage.setItem("resultId", data.id);
-    });
-  }
-
 
   function setLinkVisibility() {
     userSession ? hideMemberAccessBtn() : hideMemberOnlyBtn();

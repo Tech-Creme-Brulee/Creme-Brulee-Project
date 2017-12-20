@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  $.get("/api/user_data").then(function (data) {
+  $.get("/api/user_data", function(data){
     $(".member-name").text(data.name);
+  })
 
-  });
   var userSession = sessionStorage.getItem("islogged");
 
   function setLinkVisibility() {
