@@ -98,12 +98,12 @@ $(document).ready(function () {
     if (event.keyCode === 13) {
       updatedReview.text = $(this).children("input").val().trim();
       $(this).blur();
-      updatedReview(updatedReview);
+      updateReview(updatedReview);
     }
   }
 
   // This function updates a review in our database
-  function updatedReview(review) {
+  function updateReview(review) {
     $.ajax({
       method: "PUT",
       url: "/api/reviews",
