@@ -7,7 +7,7 @@ $(document).ready(function () {
   $("#results").append(b);
 
   $.ajax({
-    url: "http://localhost:7979/api/reviews",
+    url: "http://api/reviews",
     method: "GET",
     header: {
       "Authorization": "key = bf33c451f08cbcb295cf6ccfbd0b5d5d3ceef706"
