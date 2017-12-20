@@ -157,13 +157,12 @@ $(document).ready(function () {
   function createNewRow(review) {
     var $newInputRow = $(
       [
-        "<li class='list-group-item review-item'>",
+        "<li>",
         "<span>",
         review.body,
         "</span>",
         "<input type='text' class='edit' style='display: none;'>",
-        "<button class='delete btn btn-default'>x</button>",
-        "<button class='complete btn btn-default'>✓</button>",
+        "<button class='delete btn btn-large waves-effect waves-light green accent-4'>x</button>",
         "</li>"
       ].join("")
     );
