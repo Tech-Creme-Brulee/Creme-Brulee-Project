@@ -1,4 +1,4 @@
-#boxed    {
+#boxed {
     padding: 5%;
     border: 1px solid darkslategrey;
     background: rgba(4, 243, 64, 0.5);
@@ -7,27 +7,27 @@
     height: 25%;
 }
 
-#here   {
+#here {
     color: black;
     text-decoration: none;
 }
 
-body    {
-    background-image: url("http://www.thcfinder.com/uploads/files/jilly-bean-medical-marijuana-weed-strain-thcf-jillybeanweed.jpg");
+body {
+    background-image: url("http://bgfons.com/upload/smoke_texture2742.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-h2  {
+h2 {
     color: white;
 }
 
-footer  {
+footer {
     float: both;
     clear: both;
 }
 
-#login  {
+#login {
     color: black;
     background-color: white;
 }
@@ -37,11 +37,12 @@ footer  {
     border: 1px;
 }
 
+
 /* .background-image   {
     background-image: url("https://honestmarijuana.com/wp-content/uploads/2017/06/products-blunts-1200x430.png");
 } */
 
-a:active    {
+a:active {
     color: teal;
 }
 
@@ -50,11 +51,11 @@ a:hover {
 }
 
 a:visited,
-a:link   {
+a:link {
     color: white;
 }
 
-#cannabuddy  {
+#cannabuddy {
     font-weight: bold;
     text-decoration: none;
     float: left;

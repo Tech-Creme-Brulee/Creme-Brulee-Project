@@ -1,4 +1,26 @@
 $(document).ready(function () {
+  var obj = localStorage.getItem("obj");
+  obj = JSON.parse(obj);
+
+  var a = $("<p>").text(obj.name);
+  $("#results").append(a);
+
+  var b = $("<img src='" + obj.image + "' " + "width='200px' " + "height='200px' " + "/>");
+  $("#results").append(b);
+
+  $.ajax({
+    url: "http://localhost:7979/api/reviews",
+    method: "GET",
+    header: {
+      "Authorization": "key = bf33c451f08cbcb295cf6ccfbd0b5d5d3ceef706"
+    }
+  }).done(function(response){
+    for(var i = 0; i < response.length; i++){
+      var comment = $("<p>").text(response[i]);
+      $("#comments").append(comment);
+    }
+  });
+
   var userSession = sessionStorage.getItem("islogged");
   var ocpc = localStorage.getItem("ocpc");
 
@@ -43,6 +65,7 @@ $(document).ready(function () {
   var $reviewContainer = $(".review-container");
   // Adding event listeners for deleting, editing, and adding reviews
   $(document).on("click", "button.delete", deleteReview);
+  $(document).on("click", "button.complete", toggleComplete);
   $(document).on("click", ".review-item", editReview);
   $(document).on("keyup", ".review-item", finishEdit);
   $(document).on("blur", ".review-item", cancelEdit);
@@ -89,6 +112,14 @@ $(document).ready(function () {
     $(this).children("input.edit").val(currentReview.text);
     $(this).children("input.edit").show();
     $(this).children("input.edit").focus();
+  }
+
+  // Toggles complete status
+  function toggleComplete(event) {
+    event.stopPropagation();
+    var todo = $(this).parent().data("todo");
+    todo.complete = !todo.complete;
+    updateTodo(todo);
   }
 
   // This function starts updating a review in the database if a user hits the "Enter Key"

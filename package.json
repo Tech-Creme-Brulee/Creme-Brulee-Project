@@ -4,18 +4,28 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "automock": false,
+    "verbose": true,
+    "collectCoverageFrom": [
+      "index.js"
+    ],
+    "collectCoverage": true
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
+    "jest": "^21.2.1",
+    "jquery": "^3.2.1",
     "mysql2": "^1.3.6",
     "nodemon": "^1.12.5",
     "passport": "^0.3.2",
