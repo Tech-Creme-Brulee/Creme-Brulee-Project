@@ -13,11 +13,7 @@ $(document).ready(function () {
       "Authorization": "key = bf33c451f08cbcb295cf6ccfbd0b5d5d3ceef706"
     }
   }).done(function (response) {
-    for (var i = 0; i < response.length; i++) {
-      //console.log(response);
-      //var comment = $("<p>").text(response[i]);
-      //$("#comments").append(comment);
-    }
+    for (var i = 0; i < response.length; i++) {}
   });
 
   var userSession = sessionStorage.getItem("islogged");

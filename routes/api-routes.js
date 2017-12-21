@@ -15,7 +15,6 @@ module.exports = function (app) {
       loggedin: true
     });
 
-    //res.json("/members"); 
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -64,7 +63,7 @@ module.exports = function (app) {
   });
 
   // get cannabis id 
-  app.get("/api/cannabis_data", function(req, res){
+  app.get("/api/cannabis_data", function (req, res) {
     db.Cannabis.findAll({}).then(function (dbCannabis) {
       // We have access to the reviews as an argument inside of the callback function
       res.json(dbCannabis);

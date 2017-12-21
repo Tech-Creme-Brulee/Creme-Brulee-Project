@@ -64,8 +64,6 @@ $(document).ready(function () {
           console.log(ocpc);
           localStorage.setItem("ocpc", ocpc);
         });
-        // if (response.data[i].image == "https://www.cannabisreports.com/images/" + forWhat + "strains/no_image.png") {
-        // $("#results").next(b);
         $("#results").append(a);
 
         //adds image
@@ -102,7 +100,7 @@ $(document).ready(function () {
         //adds link to reviewes page
         var e = $("<a>").text("Write a Review of this Product!");
         $(e).attr("obj", JSON.stringify(response.data[i]));
-        $(e).attr("href", "http://localhost:7979/reviews");
+        $(e).attr("href", "/reviews");
         $(e).on("click", function () {
           var obj = $(this).attr("obj");
           localStorage.setItem("obj", obj);

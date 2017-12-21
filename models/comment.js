@@ -8,8 +8,8 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Comment.associate = function (models) {
-    // We're saying that a Comment should belong to an Author
-    // A Comment can't be created without an Author due to the foreign key constraint
+    // We're saying that a Comment should belong to an User
+    // A Comment can't be created without an User due to the foreign key constraint
     Comment.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
