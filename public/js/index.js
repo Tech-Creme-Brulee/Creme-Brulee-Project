@@ -100,7 +100,7 @@ $(document).ready(function () {
         //adds link to reviewes page
         var e = $("<a>").text("Write a Review of this Product!");
         $(e).attr("obj", JSON.stringify(response.data[i]));
-        $(e).attr("href", "http://api/reviews");
+        $(e).attr("href", "http://reviews");
         $(e).on("click", function () {
           var obj = $(this).attr("obj");
           localStorage.setItem("obj", obj);
