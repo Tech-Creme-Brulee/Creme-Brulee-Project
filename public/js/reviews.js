@@ -7,7 +7,7 @@ $(document).ready(function () {
   $("#results").append(b);
 
   $.ajax({
-    url: "http://localhost:7979/api/reviews",
+    url: "http://api/reviews",
     method: "GET",
     header: {
       "Authorization": "key = bf33c451f08cbcb295cf6ccfbd0b5d5d3ceef706"
@@ -56,7 +56,7 @@ $(document).ready(function () {
     $.get("/api/cannabis_data", function (data) {
       var res = data.find(e => e.ucpc === cannabisId);
       localStorage.setItem("resultId", res.id);
-    })
+    });
   }
   // Getting a reference to the input field where user adds a new review
   var $newItemInput = $("input.new-item");
@@ -162,7 +162,7 @@ $(document).ready(function () {
         review.body,
         "</span>",
         "<input type='text' class='edit' style='display: none;'>",
-        "<button class='delete btn btn-large waves-effect waves-light green accent-4'>x</button>",
+        "<button class='delete right btn btn-medium waves-effect waves-light green accent-4'>x</button>",
         "</li>"
       ].join("")
     );
